@@ -3,7 +3,6 @@ package sms.team.culturea.quiz;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.v7.*;
 import android.view.View;
 import android.widget.TextView;
 
