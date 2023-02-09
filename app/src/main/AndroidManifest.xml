@@ -56,6 +56,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+        <activity android:name=".about.AboutActivity"/>
         <activity android:name=".quiz.HomeScreen"/>
         <activity android:name=".quiz.PlayAgain" />
         <activity android:name=".quiz.QuizWon" />
