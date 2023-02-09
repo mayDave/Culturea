@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -14,6 +15,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import sms.team.culturea.R;
+import sms.team.culturea.about.AboutActivity;
+import sms.team.culturea.menu.MenuActivity;
 
 public class SnakeActivity extends AppCompatActivity {
     public static ImageView img_swipe;
@@ -57,6 +60,16 @@ public class SnakeActivity extends AppCompatActivity {
                 img_swipe.setVisibility(View.VISIBLE);
                 gv.reset();
                 dialogScore.dismiss();
+            }
+        });
+        RelativeLayout rl_exit = dialogScore.findViewById(R.id.rl_exit);
+        rl_exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gv.reset();
+                dialogScore.dismiss();
+                Intent intent = new Intent(SnakeActivity.this, MenuActivity.class);
+                startActivity(intent);
             }
         });
         dialogScore.show();

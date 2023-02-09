@@ -57,7 +57,7 @@
                 android:layout_centerInParent="true">
                 <ImageView
                     android:id="@+id/img_cup"
-                    android:src="@drawable/ic_baseline_emoji_events_24"
+                    android:src="@drawable/ic_best"
                     app:tint="#FFEB38"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
