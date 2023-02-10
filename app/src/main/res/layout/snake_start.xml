@@ -2,7 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#000000"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_score"
         app:cardCornerRadius="10dp"
@@ -10,63 +12,75 @@
         android:layout_centerHorizontal="true"
         android:layout_width="300dp"
         android:layout_height="330dp">
+
+
         <ImageView
             android:src="@drawable/snake_logo"
             android:scaleType="fitXY"
+            android:background="#000000"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:weightSum="2"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
             <RelativeLayout
-                android:layout_weight="1"
                 android:layout_width="0dp"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_centerInParent="true">
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical">
+
                     <ImageView
-                        android:src="@drawable/snake_point"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:scaleType="fitXY"/>
+                        android:scaleType="fitXY"
+                        android:src="@drawable/pizza" />
+
                     <TextView
                         android:id="@+id/txt_dialog_score"
-                        android:textSize="25sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:text="0"
                         android:textColor="#ffffff"
-                        android:layout_gravity="center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:textSize="25sp" />
                 </LinearLayout>
             </RelativeLayout>
+
             <RelativeLayout
-                android:layout_weight="1"
                 android:layout_width="0dp"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_centerInParent="true">
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical">
+
                     <ImageView
-                        android:src="@drawable/ic_best"
-                        app:tint="#fff0"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:scaleType="fitXY"/>
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_best"
+                        app:tint="#fff0" />
+
                     <TextView
                         android:id="@+id/txt_dialog_best_score"
-                        android:textSize="25sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:text="0"
                         android:textColor="#ffffff"
-                        android:layout_gravity="center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:textSize="25sp" />
                 </LinearLayout>
             </RelativeLayout>
         </LinearLayout>
@@ -75,14 +89,14 @@
         android:id="@+id/cv_btn_start"
         android:layout_below="@+id/cv_score"
         android:layout_marginTop="20dp"
-        app:cardCornerRadius="10dp"
+        app:cardCornerRadius="5dp"
         android:elevation="10dp"
         android:layout_centerHorizontal="true"
         android:layout_width="300dp"
         android:layout_height="wrap_content">
         <RelativeLayout
             android:id="@+id/rl_start"
-            android:background="#4CAF50"
+            android:background="#E1E1E1"
             android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -100,6 +114,7 @@
                     android:layout_marginLeft="5dp"
                     android:text="Play"
                     android:textSize="25sp"
+                    android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
@@ -109,14 +124,14 @@
         android:id="@+id/cv_btn_exit"
         android:layout_below="@+id/cv_score"
         android:layout_marginTop="100dp"
-        app:cardCornerRadius="10dp"
+        app:cardCornerRadius="5dp"
         android:elevation="10dp"
         android:layout_centerHorizontal="true"
         android:layout_width="300dp"
         android:layout_height="wrap_content">
         <RelativeLayout
             android:id="@+id/rl_exit"
-            android:background="#8BC34A"
+            android:background="#A3A3A3"
             android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -134,9 +149,19 @@
                     android:layout_marginLeft="5dp"
                     android:text="Exit"
                     android:textSize="25sp"
+                    android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/cv_btn_exit"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/snake_title" />
 </RelativeLayout>

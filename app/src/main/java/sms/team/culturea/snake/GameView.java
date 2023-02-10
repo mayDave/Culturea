@@ -54,7 +54,7 @@ public class GameView extends View {
         bmGrass2 = Bitmap.createScaledBitmap(bmGrass2, sizeElementMap, sizeElementMap, true);
         bmSnake1 = BitmapFactory.decodeResource(this.getResources(), R.drawable.snake_black);
         bmSnake1 = Bitmap.createScaledBitmap(bmSnake1, 14*sizeElementMap, sizeElementMap, true);
-        bmPoint = BitmapFactory.decodeResource(this.getResources(), R.drawable.snake_point);
+        bmPoint = BitmapFactory.decodeResource(this.getResources(), R.drawable.pizza);
         bmPoint = Bitmap.createScaledBitmap(bmPoint, sizeElementMap, sizeElementMap, true);
         for(int i = 0; i < h; i++){
             for (int j = 0; j < w; j++){
@@ -66,7 +66,7 @@ public class GameView extends View {
             }
         }
         snake = new Snake(bmSnake1,arrGrass.get(126).getX(),arrGrass.get(126).getY(), 4);
-        point = new Point(bmPoint, arrGrass.get(randomApple()[0]).getX(), arrGrass.get(randomApple()[1]).getY());
+        point = new Point(bmPoint, arrGrass.get(randomPizza()[0]).getX(), arrGrass.get(randomPizza()[1]).getY());
         handler = new Handler();
         r = new Runnable() {
             @Override
@@ -95,7 +95,7 @@ public class GameView extends View {
         //soundDie = this.soundPool.load(context, R.raw.die, 1);
     }
 
-    private int[] randomApple(){
+    private int[] randomPizza(){
         int []xy = new int[2];
         Random r = new Random();
         xy[0] = r.nextInt(arrGrass.size()-1);
@@ -190,7 +190,7 @@ public class GameView extends View {
             if(loadedsound){
                 int streamId = this.soundPool.play(this.soundEat, (float)0.5, (float)0.5, 1, 0, 1f);
             }
-            point.reset(arrGrass.get(randomApple()[0]).getX(), arrGrass.get(randomApple()[1]).getY());
+            point.reset(arrGrass.get(randomPizza()[0]).getX(), arrGrass.get(randomPizza()[1]).getY());
             snake.addPart();
             score++;
             SnakeActivity.txt_score.setText(score+"");
@@ -227,7 +227,7 @@ public class GameView extends View {
             }
         }
         snake = new Snake(bmSnake1,arrGrass.get(126).getX(),arrGrass.get(126).getY(), 4);
-        point = new Point(bmPoint, arrGrass.get(randomApple()[0]).getX(), arrGrass.get(randomApple()[1]).getY());
+        point = new Point(bmPoint, arrGrass.get(randomPizza()[0]).getX(), arrGrass.get(randomPizza()[1]).getY());
         score = 0;
     }
 }
