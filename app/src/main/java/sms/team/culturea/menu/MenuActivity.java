@@ -10,6 +10,7 @@ import android.widget.ImageView;
 
 import sms.team.culturea.R;
 import sms.team.culturea.about.AboutActivity;
+import sms.team.culturea.quiz.HomeScreen;
 import sms.team.culturea.quiz.MainQuizActivity;
 import sms.team.culturea.snake.SnakeActivity;
 import sms.team.culturea.alpaca.AlpacaActivity;
@@ -45,7 +46,7 @@ public class MenuActivity extends AppCompatActivity {
         btnStartQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MenuActivity.this, MainQuizActivity.class);
+                Intent intent = new Intent(MenuActivity.this, HomeScreen.class);
                 startActivity(intent);
             }
         });

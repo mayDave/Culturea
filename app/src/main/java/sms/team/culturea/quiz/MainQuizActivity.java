@@ -16,7 +16,6 @@ import androidx.core.content.ContextCompat;
 
 import java.util.Collections;
 import java.util.List;
-
 import info.hoang8f.widget.FButton;
 import sms.team.culturea.R;
 
