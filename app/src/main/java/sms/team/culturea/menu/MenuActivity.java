@@ -5,11 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import sms.team.culturea.R;
 import sms.team.culturea.about.AboutActivity;
+import sms.team.culturea.login.LoginActivity;
 import sms.team.culturea.quiz.HomeScreen;
 import sms.team.culturea.quiz.MainQuizActivity;
 import sms.team.culturea.snake.SnakeActivity;
@@ -18,6 +20,7 @@ import sms.team.culturea.alpaca.AlpacaActivity;
 public class MenuActivity extends AppCompatActivity {
 
     private ImageView btnStartAlpaca, btnStartSnake, btnStartQuiz, btnAbout;
+    private Button btnLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -58,6 +61,14 @@ public class MenuActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MenuActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void initViews()
@@ -66,5 +77,6 @@ public class MenuActivity extends AppCompatActivity {
         btnStartSnake = findViewById(R.id.btnStartSnake);
         btnStartQuiz = findViewById(R.id.btnStartQuiz);
         btnAbout = findViewById(R.id.btnAbout);
+        btnLogin = findViewById(R.id.btnLogin);
     }
 }
