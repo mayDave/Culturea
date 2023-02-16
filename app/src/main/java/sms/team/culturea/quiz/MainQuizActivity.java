@@ -164,8 +164,13 @@ public class MainQuizActivity extends AppCompatActivity {
         }
         //User ans is wrong then just navigate him to the PlayAgain activity
         else {
-
-            gameLostPlayAgain();
+            if (currentQuestion.getOptB().equals(currentQuestion.getAnswer()))
+                buttonB.setButtonColor(ContextCompat.getColor(getApplicationContext(),R.color.lightGreen));
+            else if (currentQuestion.getOptC().equals(currentQuestion.getAnswer()))
+                buttonC.setButtonColor(ContextCompat.getColor(getApplicationContext(),R.color.lightGreen));
+            else if (currentQuestion.getOptD().equals(currentQuestion.getAnswer()))
+                buttonD.setButtonColor(ContextCompat.getColor(getApplicationContext(),R.color.lightGreen));
+            wrongDialog();
 
         }
     }
@@ -181,7 +186,13 @@ public class MainQuizActivity extends AppCompatActivity {
                 gameWon();
             }
         } else {
-            gameLostPlayAgain();
+            if (currentQuestion.getOptA().equals(currentQuestion.getAnswer()))
+                buttonA.setButtonColor(ContextCompat.getColor(getApplicationContext(),R.color.lightGreen));
+            else if (currentQuestion.getOptC().equals(currentQuestion.getAnswer()))
+                buttonC.setButtonColor(ContextCompat.getColor(getApplicationContext(),R.color.lightGreen));
+            else if (currentQuestion.getOptD().equals(currentQuestion.getAnswer()))
+                buttonD.setButtonColor(ContextCompat.getColor(getApplicationContext(),R.color.lightGreen));
+            wrongDialog();
         }
     }
 
@@ -196,8 +207,13 @@ public class MainQuizActivity extends AppCompatActivity {
                 gameWon();
             }
         } else {
-
-            gameLostPlayAgain();
+            if (currentQuestion.getOptA().equals(currentQuestion.getAnswer()))
+                buttonA.setButtonColor(ContextCompat.getColor(getApplicationContext(),R.color.lightGreen));
+            else if (currentQuestion.getOptB().equals(currentQuestion.getAnswer()))
+                buttonB.setButtonColor(ContextCompat.getColor(getApplicationContext(),R.color.lightGreen));
+            else if (currentQuestion.getOptD().equals(currentQuestion.getAnswer()))
+                buttonD.setButtonColor(ContextCompat.getColor(getApplicationContext(),R.color.lightGreen));
+            wrongDialog();
         }
     }
 
@@ -212,8 +228,15 @@ public class MainQuizActivity extends AppCompatActivity {
                 gameWon();
             }
         } else {
-            gameLostPlayAgain();
+            if (currentQuestion.getOptA().equals(currentQuestion.getAnswer()))
+                buttonA.setButtonColor(ContextCompat.getColor(getApplicationContext(),R.color.lightGreen));
+            else if (currentQuestion.getOptB().equals(currentQuestion.getAnswer()))
+                buttonB.setButtonColor(ContextCompat.getColor(getApplicationContext(),R.color.lightGreen));
+            else if (currentQuestion.getOptC().equals(currentQuestion.getAnswer()))
+                buttonC.setButtonColor(ContextCompat.getColor(getApplicationContext(),R.color.lightGreen));
+            wrongDialog();
         }
+
     }
 
     //This method will navigate from current activity to GameWon
@@ -312,8 +335,41 @@ public class MainQuizActivity extends AppCompatActivity {
         });
     }
 
+    //This dialog is show to the user after he ans wrong
+    public void wrongDialog() {
+        final Dialog dialogWrong = new Dialog(MainQuizActivity.this);
+        dialogWrong.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        if (dialogWrong.getWindow() != null) {
+            ColorDrawable colorDrawable = new ColorDrawable(Color.TRANSPARENT);
+            dialogWrong.getWindow().setBackgroundDrawable(colorDrawable);
+        }
+        dialogWrong.setContentView(R.layout.dialog_wrong);
+        dialogWrong.setCancelable(false);
+        dialogWrong.show();
 
-    //This method will make button color white again since our one button color was turned green
+        //Since the dialog is show to user just pause the timer in background
+        onPause();
+
+
+        TextView wrongText = (TextView) dialogWrong.findViewById(R.id.wrongText);
+        FButton buttonNext = (FButton) dialogWrong.findViewById(R.id.dialogNext);
+
+        //Setting type faces
+        wrongText.setTypeface(sb);
+        buttonNext.setTypeface(sb);
+
+        //OnCLick listener to go next que
+        buttonNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //This will dismiss the dialog
+                dialogWrong.dismiss();
+                gameLostPlayAgain();
+            }
+        });
+    }
+
+        //This method will make button color white again since our one button color was turned green
     public void resetColor() {
         buttonA.setButtonColor(ContextCompat.getColor(getApplicationContext(),R.color.white));
         buttonB.setButtonColor(ContextCompat.getColor(getApplicationContext(),R.color.white));
