@@ -193,9 +193,10 @@
 
         <ImageView
             android:id="@+id/imageView8"
-            android:layout_width="250px"
-            android:layout_height="250px"
-            android:layout_marginTop="45dp"
+            android:layout_width="200px"
+            android:layout_height="200px"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="50dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView"
             app:layout_constraintTop_toTopOf="parent"
