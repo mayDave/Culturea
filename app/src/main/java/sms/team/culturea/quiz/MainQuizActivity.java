@@ -1,6 +1,7 @@
 package sms.team.culturea.quiz;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -10,6 +11,7 @@ import android.os.CountDownTimer;
 import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
+import android.content.SharedPreferences;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -343,7 +345,7 @@ public class MainQuizActivity extends AppCompatActivity {
             ColorDrawable colorDrawable = new ColorDrawable(Color.TRANSPARENT);
             dialogWrong.getWindow().setBackgroundDrawable(colorDrawable);
         }
-        //dialogWrong.setContentView(R.layout.dialog_wrong);
+        dialogWrong.setContentView(R.layout.dialog_wrong);
         dialogWrong.setCancelable(false);
         dialogWrong.show();
 
@@ -351,11 +353,11 @@ public class MainQuizActivity extends AppCompatActivity {
         onPause();
 
 
-        //TextView wrongText = (TextView) dialogWrong.findViewById(R.id.wrongText);
+        TextView wrongText = (TextView) dialogWrong.findViewById(R.id.wrongText);
         FButton buttonNext = (FButton) dialogWrong.findViewById(R.id.dialogNext);
 
         //Setting type faces
-        //wrongText.setTypeface(sb);
+        wrongText.setTypeface(sb);
         buttonNext.setTypeface(sb);
 
         //OnCLick listener to go next que
@@ -369,7 +371,7 @@ public class MainQuizActivity extends AppCompatActivity {
         });
     }
 
-        //This method will make button color white again since our one button color was turned green
+    //This method will make button color white again since our one button color was turned green
     public void resetColor() {
         buttonA.setButtonColor(ContextCompat.getColor(getApplicationContext(),R.color.white));
         buttonB.setButtonColor(ContextCompat.getColor(getApplicationContext(),R.color.white));
