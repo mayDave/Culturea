@@ -343,7 +343,7 @@ public class MainQuizActivity extends AppCompatActivity {
             ColorDrawable colorDrawable = new ColorDrawable(Color.TRANSPARENT);
             dialogWrong.getWindow().setBackgroundDrawable(colorDrawable);
         }
-        dialogWrong.setContentView(R.layout.dialog_wrong);
+        //dialogWrong.setContentView(R.layout.dialog_wrong);
         dialogWrong.setCancelable(false);
         dialogWrong.show();
 
@@ -351,11 +351,11 @@ public class MainQuizActivity extends AppCompatActivity {
         onPause();
 
 
-        TextView wrongText = (TextView) dialogWrong.findViewById(R.id.wrongText);
+        //TextView wrongText = (TextView) dialogWrong.findViewById(R.id.wrongText);
         FButton buttonNext = (FButton) dialogWrong.findViewById(R.id.dialogNext);
 
         //Setting type faces
-        wrongText.setTypeface(sb);
+        //wrongText.setTypeface(sb);
         buttonNext.setTypeface(sb);
 
         //OnCLick listener to go next que

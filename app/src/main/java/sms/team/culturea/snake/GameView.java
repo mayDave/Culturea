@@ -6,10 +6,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Rect;
-import android.media.AudioAttributes;
-import android.media.AudioManager;
-import android.media.SoundPool;
-import android.os.Build;
 import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -36,10 +32,6 @@ public class GameView extends View {
     public static boolean isPlaying = false;
     public static int score = 0, bestScore = 0;
     private Context context;
-    private int soundEat, soundDie;
-    private float volume;
-    private boolean loadedsound;
-    private SoundPool soundPool;
 
     public GameView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -74,25 +66,6 @@ public class GameView extends View {
                 invalidate();
             }
         };
-        if(Build.VERSION.SDK_INT>=21){
-            AudioAttributes audioAttributes = new AudioAttributes.Builder()
-                    .setUsage(AudioAttributes.USAGE_GAME)
-                    .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
-                    .build();
-            SoundPool.Builder builder = new SoundPool.Builder();
-            builder.setAudioAttributes(audioAttributes).setMaxStreams(5);
-            this.soundPool = builder.build();
-        }else{
-            soundPool = new SoundPool(5, AudioManager.STREAM_MUSIC, 0);
-        }
-        this.soundPool.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
-            @Override
-            public void onLoadComplete(SoundPool soundPool, int sampleId, int status) {
-                loadedsound = true;
-            }
-        });
-        //soundEat = this.soundPool.load(context, R.raw.eat, 1);
-        //soundDie = this.soundPool.load(context, R.raw.die, 1);
     }
 
     private int[] randomPizza(){
@@ -187,9 +160,7 @@ public class GameView extends View {
         snake.drawSnake(canvas);
         point.draw(canvas);
         if(snake.getArrPartSnake().get(0).getrBody().intersect(point.getR())){
-            if(loadedsound){
-                int streamId = this.soundPool.play(this.soundEat, (float)0.5, (float)0.5, 1, 0, 1f);
-            }
+            SnakeActivity.audio_Eat.start();
             point.reset(arrGrass.get(randomPizza()[0]).getX(), arrGrass.get(randomPizza()[1]).getY());
             snake.addPart();
             score++;
@@ -211,9 +182,7 @@ public class GameView extends View {
         SnakeActivity.dialogScore.show();
         SnakeActivity.txt_dialog_best_score.setText(bestScore+"");
         SnakeActivity.txt_dialog_score.setText(score+"");
-        if(loadedsound){
-            int streamId = this.soundPool.play(this.soundDie, (float)0.5, (float)0.5, 1, 0, 1f);
-        }
+        SnakeActivity.audio_GameOver.start();
     }
 
     public void reset(){

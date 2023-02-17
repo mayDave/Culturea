@@ -6,6 +6,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
@@ -15,7 +16,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import sms.team.culturea.R;
-import sms.team.culturea.about.AboutActivity;
 import sms.team.culturea.menu.MenuActivity;
 
 public class SnakeActivity extends AppCompatActivity {
@@ -23,6 +23,7 @@ public class SnakeActivity extends AppCompatActivity {
     public static Dialog dialogScore;
     private GameView gv;
     public static TextView txt_score, txt_best_score, txt_dialog_score, txt_dialog_best_score;
+    public static MediaPlayer audio_Eat, audio_GameOver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,9 @@ public class SnakeActivity extends AppCompatActivity {
         txt_score = findViewById(R.id.txt_score);
         txt_best_score = findViewById(R.id.txt_best_score);
         dialogScore();
+
+        audio_Eat = MediaPlayer.create(this, R.raw.snake_eat);
+        audio_GameOver = MediaPlayer.create(this, R.raw.snake_game_over);
     }
 
     private void dialogScore() {
