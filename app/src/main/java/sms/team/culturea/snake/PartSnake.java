@@ -44,17 +44,9 @@ public class PartSnake
         return new Rect(this.x, this.y, this.x+GameView.sizeElementMap, this.y+GameView.sizeElementMap);
     }
 
-    public void setrBody(Rect rBody) {
-        this.rBody = rBody;
-    }
-
     public Rect getrTop() {
         return new Rect(this.x, this.y-10*Constants.SCREEN_HEIGHT/1920,
                 this.x+GameView.sizeElementMap, this.y);
-    }
-
-    public void setrTop(Rect rTop) {
-        this.rTop = rTop;
     }
 
     public Rect getrBottom() {
@@ -62,25 +54,13 @@ public class PartSnake
                 this.x+GameView.sizeElementMap, this.y+GameView.sizeElementMap+10*Constants.SCREEN_HEIGHT/1920);
     }
 
-    public void setrBottom(Rect rBottom) {
-        this.rBottom = rBottom;
-    }
-
     public Rect getrLeft() {
         return new Rect(this.x-10*Constants.SCREEN_WIDTH/1080, this.y,
                 this.x, this.y+GameView.sizeElementMap);
     }
 
-    public void setrLeft(Rect rLeft) {
-        this.rLeft = rLeft;
-    }
-
     public Rect getrRight() {
         return new Rect(this.x+GameView.sizeElementMap, this.y,
                 this.x+GameView.sizeElementMap+10*Constants.SCREEN_WIDTH/1080, this.y+GameView.sizeElementMap);
-    }
-
-    public void setrRight(Rect rRight) {
-        this.rRight = rRight;
     }
 }

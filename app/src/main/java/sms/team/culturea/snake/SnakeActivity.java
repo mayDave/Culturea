@@ -16,7 +16,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import sms.team.culturea.R;
-import sms.team.culturea.about.AboutActivity;
 import sms.team.culturea.menu.MenuActivity;
 
 public class SnakeActivity extends AppCompatActivity {
